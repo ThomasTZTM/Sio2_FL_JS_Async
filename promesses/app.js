@@ -1,34 +1,26 @@
-////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////// PROMESSE //////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-
-let obtenirBTS = new Promise( (resolve,reject) => {
-    // Passer le BTS et obtenir le result
-
-    // Simuler le fait que le résultat est arrivé et favorable
-    setTimeout( ()=> {
-        let btsObtenu = true
-        if (btsObtenu) {
-            // La promesse a été tenue
-            resolve("BTS Obtenu")
-        }else{
-            // La promesse n'a pas été tenue
-            reject("BTS Non obtenu")
-        }
-    }, 5000)
-})
-
-////////////////////////////////////////////////////////////////////////////////
-///////////////////////////// INSTRUCTION //////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-
 console.log(1)
 
-obtenirBTS
-    .then((resultat) => { // then = promesse tenue
+const reussirBTS = () => {
+    return new Promise( (resolve,reject) => {
+        setTimeout( ()=> {
+            let btsObtenu = true
+            if (btsObtenu) {
+                // La promesse a été tenue
+                resolve("BTS Obtenu")
+            }else{
+                // La promesse n'a pas été tenue
+                reject("BTS Non obtenu")
+            }
+        }, 5000)
+    })
+}
+
+// Appelé la fonction async
+reussirBTS()
+    .then( (resultat) => {
         console.log(resultat)
     })
-    .catch((erreur) => { // catch = promesse non tenue
+    .catch( (erreur) => {
         console.log(erreur)
     })
 
