@@ -1,11 +1,19 @@
-console.log(1)
-console.log(2)
+let obtenirBTS = new Promise( (resolve,reject) => {
+    // Passer le BTS et obtenir le result
 
+    // Simuler le fait que le résultat est arrivé et favorable
+    let btsObtenu = true
 
-setTimeout(()=>{ // Simuler prendre 3s
-    console.log("Fonction de callback appelée")
-},3000)
+    if (btsObtenu) {
+        // La promesse a été tenue
+        resolve("BTS Obtenu")
+    }else{
+        // La promesse n'a pas été tenue
+        reject("BTS Non obtenu")
+    }
 
+})
 
-console.log(3)
-console.log(4)
+obtenirBTS.then((resultat) => {
+    console.log(resultat)
+})
