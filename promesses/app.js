@@ -15,13 +15,16 @@ const reussirBTS = () => {
     })
 }
 
-// Appelé la fonction async
-reussirBTS()
-    .then( (resultat) => {
-        console.log(resultat)
-    })
-    .catch( (erreur) => {
-        console.log(erreur)
-    })
+// Autre manière d'appelé la fonction
+// async et await
+const traiterReussirBTS = async () => {
+    try {
+        const reponse = await reussirBTS()
+        console.log(reponse)
+    }catch (error){
+        console.log(error) // Promesse non tenue
+    }
+}
+traiterReussirBTS()
 
 console.log(2)
